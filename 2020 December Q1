@@ -1,0 +1,15 @@
+# Farmer John's cows have been holding a daily online gathering on the "mooZ" video meeting platform.
+# For fun, they have invented a simple number game to play during the meeting to keep themselves entertained.
+# Elsie has three positive integers A, B, and C(A≤B≤C). 
+# These integers are supposed to be secret, so she will not directly reveal them to her sister Bessie.
+# Instead, she gives Bessie seven (not necessarily distinct) integers in the range 1…109
+# claiming that they are A, B, C, A+B, B+C, C+A, and A+B+C in some order.
+
+y = [int(x) for x in input().split()]
+y.sort()
+a = y[0]
+sum_3 = y[6]
+b = y[1]
+c = sum_3 - a - b
+print(a,b,c)
+    
