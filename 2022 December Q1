@@ -1,0 +1,21 @@
+# There are N (1≤N≤105) cows who could potentially attend this university.
+# Each cow is willing to pay a maximum tuition of ci(1≤ci≤106).
+# Farmer John can set the tuition that all cows must pay to enroll. If this tuition is greater than the maximum a cow is willing to pay the cow won't attend
+# Farmer John wants to make the most possible money so he can pay his instructors a fair wage
+# Determince max income
+
+x = int(input())
+# contains N
+y = [int(x) for x in input().split()]
+# contains the N integers
+y.sort()
+max_ = 0
+maxx_ = 0
+for i in range(len(y)):
+    if x*y[i] > max_:
+        max_ = x*y[i]
+        maxx_ = y[i]
+        x -= 1
+    else:
+        x -= 1
+print(max_, maxx_)
