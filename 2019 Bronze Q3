@@ -1,0 +1,43 @@
+f = open('lineup.in')
+inp = f.read().strip().split("\n")
+n = int(inp[0])
+inp.pop(0)
+
+neighbors = [[] for i in range(8)]
+num_to_cow = ["Bessie", "Buttercup", "Belinda", "Beatrice", "Bella", "Blue", "Betsy", "Sue"]
+num_to_cow.sort()
+cow_to_num = {num_to_cow[i] : i for i in range(8)}
+
+for i in range(n):
+  curr = inp[i].split(" ")
+  first = cow_to_num[curr[0]]
+  second = cow_to_num[curr[5]]
+  neighbors[first].append(second)
+  neighbors[second].append(first)
+
+heads = []
+for i in range(8):
+  if len(neighbors[i]) < 2:
+    heads.append(i)
+
+final = []
+placed = [False] * 8
+
+for i in heads:
+  if placed[i]:
+    continue
+  prev = i
+  curr = i
+  final.append(i)
+  placed[i] = True
+  while len(neighbors[curr]) > 0:
+    prev = curr
+    curr = neighbors[curr][0]
+    neighbors[curr].remove(prev)
+    final.append(curr)
+    placed[curr] = True
+
+f = open('lineup.out', 'w')
+for i in final:
+  f.write(num_to_cow[i] + "\n")
+f.close()
