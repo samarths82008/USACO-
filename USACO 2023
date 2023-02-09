@@ -1,0 +1,54 @@
+x = int(input())
+def moo(y):
+    a = 0
+    while a < len(y)-2:
+        if y[a] == 'M' and y[a+1] == 'O' and y[a+2] == 'O':
+            return True
+        else:
+            a += 1
+def moo2(y):
+    count = 0
+    y = list(y)
+    i = len(y)-2
+    while i > 0:
+        if y[i] == 'O':
+            if y[i+1] == 'O':
+                y[i-1] == 'M'
+                count += i
+                return count
+        elif i == 1:
+            return -1
+        else:
+            count += 2
+            y[i] == 'O'
+        i -= 1
+    return count
+def moo3(y):
+    if y == 'MOO':
+        return 0
+    if y[1] == 'M':
+        return -1
+    if y[2] == '0':
+        if y[0] == 'M':
+            return 0
+        else:
+            return 1
+    if y[0] == 'M':
+        return 1
+    else:
+        return 2 
+while x != 0:
+    y = input()
+    if len(y) < 3:
+        print(-1)
+        x -= 1
+        continue
+    if len(y) == 3:
+        print(moo3(y))
+        x -= 1
+        continue
+    if moo(y) == True:
+        print(len(y)-3)
+    else:
+        print(moo2(y))
+    x -= 1
