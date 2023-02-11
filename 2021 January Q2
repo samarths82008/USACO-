@@ -1,0 +1,7 @@
+y = [int(x) for x in input().split()]
+y.sort()
+a = y[0]
+sum_3 = y[6]
+b = y[1]
+c = sum_3 - a - b
+print(a,b,c)
