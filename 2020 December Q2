@@ -1,0 +1,15 @@
+def skel(z):
+    a,b,c,d = z
+    a = int(a)
+    b = int(b)
+    c = int(c)
+    d = int(d)
+    y = abs(b-a)
+    l = [c,d] 
+    c = min(l)
+    d = max(l)
+    x = abs(c-a)+abs(b-d)
+    k = [y,x]
+    return min(k)
+z = input().split()
+print(skel(z))
