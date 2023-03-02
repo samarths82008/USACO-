@@ -1,0 +1,17 @@
+x, y = map(int, input().split())
+dist = 0
+i = 0
+direction = 1
+
+while True:
+    d = direction * (2 ** i)
+    
+    if x + d >= y >= x or x >= y >= x - d:
+        dist += abs(y - x)
+        break
+
+    dist += abs(d)
+    i += 1
+    direction *= -1
+
+print(dist)
