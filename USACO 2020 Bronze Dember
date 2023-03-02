@@ -1,0 +1,14 @@
+x = int(input())
+y = [int(x) for x in input().split()]
+y.sort()
+max_ = 0
+maxx_ = 0
+for i in range(len(y)):
+    if x*y[i] > max_:
+        max_ = x*y[i]
+        maxx_ = y[i]
+        x -= 1
+    else:
+        x -= 1
+print(max_, maxx_)
+    
