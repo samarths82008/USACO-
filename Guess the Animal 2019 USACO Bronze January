@@ -1,0 +1,22 @@
+name = 'guess' 
+fi = open(name+'.in','r')
+input = lambda: fi.readline().strip()
+fo = open(name+'.out','w')
+print = lambda x: fo.write(str(x)+'\n')
+
+
+N = int(input())
+a = []
+for i in range(N):
+    a.append(input().split())
+def intersection(lst1, lst2):
+    lst3 = [value for value in lst1 if value in lst2]
+    return lst3
+l = []
+for i in a:
+    for j in a:
+        if i == j:
+            l.append(0)
+        else:
+            l.append(len(intersection(i[2:],j[2:])))
+print(max(l)+1)
