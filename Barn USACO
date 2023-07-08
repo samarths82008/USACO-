@@ -1,0 +1,11 @@
+n = int(input())
+l = [int(input()) for _ in range(n)]
+# l = []
+# for _ in range(n): l.append(int(input()))
+ret = pow(10,50) #infinity
+for start in range(n):
+    ans = 0
+    for distance in range(n):
+        ans += distance*l[(start + distance)% n]
+    if ans < ret: ret = ans
+print(ret)
