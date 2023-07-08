@@ -1,0 +1,16 @@
+name = 'cowsignal' 
+fi = open(name+'.in','r')
+input = lambda: fi.readline().strip()
+fo = open(name+'.out','w')
+print = lambda x: fo.write(str(x)+'\n')
+
+M,N,K = map(int,input().split())
+a = M*K
+l = []
+for i in range(a):
+    l = []
+    c = input()
+    for k in c:
+        l.append(k*K)
+    for i in range(K):
+        print(''.join(l))
