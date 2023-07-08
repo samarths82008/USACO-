@@ -1,0 +1,26 @@
+# name = 'herding' 
+# fi = open(name+'.in','r')
+# input = lambda: fi.readline().strip()
+# fo = open(name+'.out','w')
+# print = lambda x: fo.write(str(x)+'\n')
+
+d = list(map(int,input().split()))
+d.sort()
+if d[1] - d[0] == 1 and d[2] - d[1] == 1:
+    print(0)
+    print(2)
+elif d[1] - d[0] == 1:
+    print(1)
+    print(2)
+elif d[2] - d[1] == 1:
+    print(1)
+    print(2)
+elif d[1] - d[0] == 2:
+    print(1)
+    print(2)
+elif d[2] - d[1] == 2:
+    print(1)
+    print(2)
+else:
+    print(2)
+    print(2)
