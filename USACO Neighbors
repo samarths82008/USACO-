@@ -1,0 +1,22 @@
+for _ in range(int(input())):
+    n,m = map(int,input().split())
+    grid = [list(map(int,input().split())) for _ in range(n)]
+    directions = [[1,1],[-1,1],[1,-1],[-1,-1]]
+    ans = 0
+    cowpairs = set()
+    for i in range(n):
+        for j in range(m):
+            if grid[i][j] == 'G':
+                neighbors = []
+                for x,y in directions:
+                    ip,jp = i+x,j+y
+                    if 0<=ip<n and 0<= jp < m:
+                        if grid[ip][jp] == 'C':
+                            neighbors.append((ip,jp))
+                if len(neighbors) > 2:
+                    ans += 1
+                elif len(neighbors) == 2:
+                    neighbors.sort()
+                    cowpairs.add(tuple(neighbors))
+
+print(ans + len(cowpairs))
