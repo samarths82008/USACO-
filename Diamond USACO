@@ -1,0 +1,20 @@
+name = 'diamond' 
+fi = open(name+'.in','r')
+input = lambda: fi.readline().strip()
+fo = open(name+'.out','w')
+print = lambda x: fo.write(str(x)+'\n')
+N,K = input().split()
+N = int(N)
+K = int(K)
+l = []
+m = 0 
+for i in range(N):
+    l.append(int(input()))
+for x in l:
+    c = 0
+    for y in l:
+        if x <= y <= x + K:c += 1
+    m = max(m,c)
+
+print(m)
+
