@@ -1,0 +1,7 @@
+for _ in range(int(input())):
+    n = int(input())
+    a = list(map(int,input().split()))
+    l = [x%2 for x in a]
+    # l = []
+    # for x in a: l.append(x%2)
+    print(min(l.count(0),l.count(1)))
