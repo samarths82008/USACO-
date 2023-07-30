@@ -1,0 +1,19 @@
+name = 'outofplace' 
+fi = open(name+'.in','r')
+input = lambda: fi.readline().strip()
+fo = open(name+'.out','w')
+print = lambda x: fo.write(str(x)+'\n')
+
+cow_n = int(input())
+cows = []
+for _ in range(1,cow_n+1):
+    cows.append(int(input()))
+
+sorted_cows = sorted(cows)
+
+bad_n = 0
+for i in range(len(cows)):
+	if cows[i] != sorted_cows[i]:
+		bad_n += 1
+
+print(bad_n-1)
