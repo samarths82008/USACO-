@@ -1,0 +1,31 @@
+name = 'notlast' 
+fi = open(name+'.in','r')
+input = lambda: fi.readline().strip()
+fo = open(name+'.out','w')
+print = lambda x: fo.write(str(x)+'\n')
+
+topcows = dict()
+for _ in range(int(input())):
+    cow, milk = input().split()
+    if cow in topcows:
+        topcows[cow] += int(milk)
+    else:
+        topcows[cow] = int(milk)
+cows = []
+for cow in topcows:
+    cows.append([topcows[cow],cow])
+cows.sort()
+m = cows[0][0]
+winners = []
+second = -1
+for x in cows:
+    if x[0] != m:
+        if second == -1:
+            winners.append(x[1])
+            second = x[0]
+        elif x[0] == second:
+            winners.append(x[1])
+if len(winners) == 1:
+    print(winners[0])
+else:
+    print('Tie')
